@@ -68,7 +68,7 @@
 @section('scripts')
 
 <script>
-var url = 'https://iplayfootball.org/docsmanaga';
+var url = '';//'https://iplayfootball.org/docsmanaga';
 	$('body').delegate('#downloadfile', 'click', function(){
 		var file = $(this).data('url');
 		window.location = url+"/download/"+file

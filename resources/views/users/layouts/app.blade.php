@@ -284,7 +284,7 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script> --}}
 
     <script>
-        var url = 'https://iplayfootball.org/docsmanaga'
+        var url = '';//'https://iplayfootball.org/docsmanaga'
 
         $(document).ready(function () {
                         $('body').delegate('#share', 'click', function(){

@@ -298,7 +298,7 @@
     <script src="{{asset( 'assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset( 'assets/js/init/datatables-init.js')}}"></script>
     <script>
-        var url = 'https://iplayfootball.org/docsmanaga'
+        var url = '';//'https://iplayfootball.org/docsmanaga'
     </script>
     @yield('scripts')
     <script>
