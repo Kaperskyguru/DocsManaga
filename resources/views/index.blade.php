@@ -14,11 +14,15 @@
                         <p>with DocsManaga's high quality features</p>
                         <div class="row">
                             @guest
-                            <a class="btn btn-primary btn-lg btn-cstom" href="{{ route('register') }}">{{ __('Register') }}</a>                            @if(Route::has('register'))
-                            <a class="btn btn-primary btn-lg btn-custom" href="{{ route('login') }}">{{ __('Login') }}</a>@endif
-                            @auth
-                            <p><a class="btn btn-primary btn-lg btn-custom" href="{{ route('home') }}">{{ __('Goto Dashboard') }}</a></p>
-                            @endauth @else @endguest
+                                @if(Route::has('register'))
+                                <a class="btn btn-primary btn-lg btn-cstom" href="{{ route('register') }}">{{ __('Register') }}</a> 
+                                @endif
+                                <a class="btn btn-primary btn-lg btn-custom" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @else
+                                @auth
+                                <p><a class="btn btn-primary btn-lg btn-custom" href="{{ route('home') }}">{{ __('Goto Dashboard') }}</a></p>
+                                @endauth  
+                            @endguest
                         </div>
                     </div>
                 </div>
