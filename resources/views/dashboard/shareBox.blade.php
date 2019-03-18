@@ -1,0 +1,1 @@
+<input type="text" id="linkText" class="form-control" value="{{$url}}"/>
