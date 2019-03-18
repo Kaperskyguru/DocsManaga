@@ -1,5 +1,5 @@
 @extends('layouts.app') 
-@section('content') {{-- @dd($document) --}}
+@section('content')
 <section id="home" class="video-hero" style="height: 500px; background-image: url(images/cover_img_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;"
  data-section="home">
 	<div class="overlay"></div>
@@ -24,29 +24,35 @@
 				<h2>Document Information</h2>
 				<div class="row">
 					<div class="col-md-12">
-					    @if($document->access == 1):
-						<div class="contact-info-wrap-flex">
-							<div class="con-info">
-								<p><span><i class="icon-location-2"></i></span> {{$document->title}}</p>
-							</div>
-							<div class="con-info">
-								<p><span><i class="icon-phone3"></i></span>{{$document->user->name}}</p>
-							</div>
-							<div class="con-info">
-								<p><span><i class="icon-paperplane"></i> </span> {{$document->description}}</p>
-							</div>
-							<div class="con-info">
-								<p><span><i class="icon-globe"></i></span> {{$document->category}}</p>
-							</div>
-						</div>
-						
-						
-						<div class="con-info">
-							<a id="downloadfile" data-url="{{extractFileFromPath($document->filename)}}" href="#" class="btn btn-success btn-lg" value="Download">Download</a>
-						</div>
-						@else:
-						<div class="con-info">
-							<p><span><i class="icon-location-2"></i></span> This document is private. Please contact the Uploader to make it publicly accessible</p>
+					    @if(!is_string($document))
+    					    @if($document->access == 1)
+    						<div class="contact-info-wrap-flex">
+    							<div class="con-info">
+    								<p><span><i class="icon-location-2"></i></span> {{$document->title}}</p>
+    							</div>
+    							<div class="con-info">
+    								<p><span><i class="icon-phone3"></i></span>{{$document->user->name}}</p>
+    							</div>
+    							<div class="con-info">
+    								<p><span><i class="icon-paperplane"></i> </span> {{$document->description}}</p>
+    							</div>
+    							<div class="con-info">
+    								<p><span><i class="icon-globe"></i></span> {{$document->category}}</p>
+    							</div>
+    						</div>
+    						
+    						
+    						<div class="con-info">
+    							<a id="downloadfile" data-url="{{extractFileFromPath($document->filename)}}" href="#" class="btn btn-success btn-lg" value="Download">Download</a>
+    						</div>
+    						@else
+    						<div class="con-info">
+    							<p><span><i class="icon-location-2"></i></span> This document is private. Please contact the Uploader to make it publicly accessible</p>
+    						</div>
+    						@endif
+    					@else
+    					<div class="con-info">
+    							<p><span><i class="icon-location-2"></i></span> This document does not exist on our server</p>
 						</div>
 						@endif
 					</div>

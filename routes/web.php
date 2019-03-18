@@ -58,7 +58,11 @@ Route::get('/user/document', 'UsersController@documents')->middleware('user')->n
 Route::get('/share/{file}', function ($file) {
     // Get the document from link
     $link = \App\Link::where('link', $file)->first();
-    $document = \App\Document::find($link->document_id);
+    if (!is_null($link)) {
+        $document = \App\Document::find($link->document_id);
+    } else {
+        $document = 'This document does not exist on our server';
+    }
     return view('share')->with('document', $document);
 })->name('share');
 
