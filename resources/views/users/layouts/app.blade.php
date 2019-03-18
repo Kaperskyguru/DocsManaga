@@ -284,12 +284,14 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script> --}}
 
     <script>
+        var url = 'https://iplayfootball.org/docsmanaga'
+
         $(document).ready(function () {
                         $('body').delegate('#share', 'click', function(){
                             let id = $(this).data('id');
                             var token = $(this).data("token");
                             $.ajax({
-                                url:'/linkBox',
+                                url: url+'/linkBox',
                                 type:'get',
                                 data:{'id':id, '_token': token},
                                 success: function(data) {
@@ -302,7 +304,7 @@
                             let id = $(this).data('id');
                             var token = $(this).data("token");
                             $.ajax({
-                                url:'/trash/'+id,
+                                url:url+'/trash/'+id,
                                 type:'DELETE',
                                 data:{'_token': token, '_method':'DELETE'},
                                 success: function(data) {
@@ -315,7 +317,7 @@
                             let id = $(this).data('id');
                             var token = $(this).data("token");
                             $.ajax({
-                                url:'/restore/'+id,
+                                url: url+'/restore/'+id,
                                 type:'GET',
                                 data:{'_token': token, '_method':'GET'},
                                 success: function(data) {
@@ -328,7 +330,7 @@
                             let id = $(this).data('id');
                             var token = $(this).data("token");
                             $.ajax({
-                                url:'/remove/'+id,
+                                url: url+'/remove/'+id,
                                 type:'DELETE',
                                 data:{'_token': token, '_method':'DELETE'},
                                 success: function(data) {
@@ -341,7 +343,7 @@
                             let id = $(this).data('id');
                             var token = $(this).data("token");
                             $.ajax({
-                                url:'/editBox/'+id,
+                                url: url+'/editBox/'+id,
                                 type:'GET',
                                 data:{'_token': token, '_method':'GET'},
                                 success: function(data) {
@@ -351,8 +353,8 @@
                         });
     
                         $('body').delegate('#downloadfile', 'click', function(){
-                            var url = $(this).data('url');
-                            window.location = "/download/"+url
+                            var file = $(this).data('url');
+                            window.location = url +"/download/"+file
                         });
             
                     });

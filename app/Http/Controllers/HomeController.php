@@ -124,7 +124,8 @@ class HomeController extends Controller
     public function approveUser(Request $request)
     {
         if ($request->ajax()) {
-            $user = User::findOrfail($request->id);
+            
+            $user = User::find($request->id);
             $user->status = $request->status;
             if ($user->save()) {
                 if ($request->status == 2) {

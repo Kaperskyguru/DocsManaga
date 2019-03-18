@@ -24,6 +24,7 @@
 				<h2>Document Information</h2>
 				<div class="row">
 					<div class="col-md-12">
+					    @if($document->access == 1):
 						<div class="contact-info-wrap-flex">
 							<div class="con-info">
 								<p><span><i class="icon-location-2"></i></span> {{$document->title}}</p>
@@ -38,9 +39,16 @@
 								<p><span><i class="icon-globe"></i></span> {{$document->category}}</p>
 							</div>
 						</div>
+						
+						
 						<div class="con-info">
 							<a id="downloadfile" data-url="{{extractFileFromPath($document->filename)}}" href="#" class="btn btn-success btn-lg" value="Download">Download</a>
 						</div>
+						@else:
+						<div class="con-info">
+							<p><span><i class="icon-location-2"></i></span> This document is private. Please contact the Uploader to make it publicly accessible</p>
+						</div>
+						@endif
 					</div>
 				</div>
 			</div>

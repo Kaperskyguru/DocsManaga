@@ -60,7 +60,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-                        <input type="hidden" class="form-control" name="role" value="1" required>
+                        <input type="hidden" class="form-control" name="role" value="2" required>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -269,13 +269,13 @@
                     var token = $(this).data('token');
                     $.ajax({
                         type: "POST",
-                        url: '/backup',
+                        url: url + '/backup',
                         type:'POST',
                         data: {
                             _token: token,
                         },
                         success: function (result) {
-                        alert("ok")
+                        alert("backup successfully")
 
                         },
                         error: function (errors) {

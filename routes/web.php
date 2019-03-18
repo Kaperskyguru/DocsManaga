@@ -62,4 +62,4 @@ Route::get('/share/{file}', function ($file) {
     return view('share')->with('document', $document);
 })->name('share');
 
-Route::post('backup', 'SystemController@postDbBackUp')->name('backup');
+Route::post('backup', 'SystemController@postDbBackUp')->middleware('admin')->name('backup');

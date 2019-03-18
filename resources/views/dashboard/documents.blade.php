@@ -105,6 +105,7 @@
                                                 <td>
                                                     <span data-toggle="modal" data-target="#editModal" data-id="{{$document->id}}" data-token="{{csrf_token()}}" id="edit" data-toggle="tooltip"
                                                         title="Edit!" class="badge badge-complete"><i class="fa fa-edit" aria-hidden="true"></i></span>
+                                                        
                                                     <span class="badge badge-complete" id="trash" data-id="{{$document->id}}" data-token="{{csrf_token()}}" data-toggle="tooltip"
                                                         title="Trash!"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                 </td>
@@ -137,7 +138,7 @@
                                             @foreach ($trashes as $trash)
                                             <tr>
                                                 <td class="avatar">{{$trash->title}}</td>
-                                                <td> <span class="name">{{$document->user == null ? "Anonymous" :$document->user->name}} </span></td>
+                                                <td> <span class="name">{{$trash->user == null ? "Anonymous" :$trash->user->name}} </span></td>
                                                 <td> <span class="name">{{$trash->description}}</span> </td>
                                                 <td> <span class="product">{{($trash->access==1)?'Public':'Private'}}</span> </td>
                                                 <td>{{$trash->category}}</td>

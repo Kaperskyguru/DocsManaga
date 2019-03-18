@@ -135,8 +135,8 @@
                     <div class="form-group">
                         <label for="role" class=" form-control-label">Role</label>
                         <select name="role" class="form-control">
-                            <option value="1">User</option>
-                            <option value="2">Admin</option>
+                            <option value="2">User</option>
+                            <option value="1">Admin</option>
                         </select>
                     </div>
                 </form>
@@ -156,7 +156,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        //   $('#bootstrap-data-table-export').DataTable();
+          $('#bootstrap-data-table-export').DataTable();
       
 
       $('body').delegate('#approveUser', 'click', function(){
@@ -166,20 +166,24 @@
             if(value == "Pending"){
                 let status = 2;
                 $.ajax({
-                    url:'/approveUser',
+                    url: url+'/approveUser',
                     type:'PATCH',
                     data:{'id':id, 'status':status,'_token': token, '_method':'PATCH'},
                     success: function(data) {
+                        $('#approveUser').removeClass('badge-pending');
+                        $('#approveUser').addClass('badge-success');
                         $('#e').html(data)
                     }
                 });
             } else {
                 let status = 1;
                 $.ajax({
-                    url:'/approveUser',
+                    url: url+'/approveUser',
                     type:'PATCH',
                     data:{'id':id, 'status':status, '_token': token, '_method':'PATCH'},
                     success: function(data) {
+                        $('#approveUser').removeClass('badge-success');
+                        $('#approveUser').addClass('badge-pending');
                         $('#e').html(data)
                     }
                 });
@@ -190,7 +194,7 @@
             let id = $(this).data('id');
             var token = $(this).data("token");
             $.ajax({
-                url:'/deleteUser/'+id,
+                url: url+'/deleteUser/'+id,
                 type:'DELETE',
                 data:{'_token': token, '_method':'DELETE'},
                 success: function(data) {
